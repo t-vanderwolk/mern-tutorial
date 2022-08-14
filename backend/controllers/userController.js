@@ -39,13 +39,13 @@ const registerUser = asyncHandler( async  (req,res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         })
     } else {
         res.status(400)
         throw new Error('Invalid user data')
     }
-})
+}) 
 
 
 // @desc Authenticate a user
