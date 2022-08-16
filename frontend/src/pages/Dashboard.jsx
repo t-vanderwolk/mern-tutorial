@@ -12,7 +12,9 @@ const navigate = useNavigate()
 const dispatch = useDispatch()
 
 const { user } = useSelector((state) => state.auth)
-const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
+const { goals, isLoading, isError, message} = useSelector(
+  (state) => state.goals
+  )
 
  useEffect(() => {
   if(isError) {
@@ -39,6 +41,7 @@ const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
       <h1> Welcome {user && user.name}</h1>
       <p>Goals Dashboard</p>
     </section>
+
     <GoalForm />
 
     <section className="content">
@@ -48,8 +51,9 @@ const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
             <GoalItem key={goal._id} goal={goal} />
           ))}
         </div>
-      ) : (<h3> You have not set any goals</h3>)
-       }
+      ) : (
+      <h3> You have not set any goals</h3>
+      )}
     </section>
     </>
   )
