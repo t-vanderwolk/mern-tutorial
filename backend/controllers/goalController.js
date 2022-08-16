@@ -5,7 +5,7 @@ const User = require('../models/userModel')
 // @desc get goals
 // @route GET /api/goals
 // @access Private
-const getGoal = asyncHandler ( async (req, res) => {
+const getGoals = asyncHandler ( async (req, res) => {
     const goals = await Goal.find({ user: req.user.id  })
 
     res.status(200).json(goals)
@@ -81,7 +81,7 @@ if(goal.user.toString() !== req.user.id){
     res.status(200).json({ id: req.params.id})
 })
 module.exports = {
-    getGoal,
+    getGoals,
     setGoal,
     updateGoal,
     deleteGoal,
